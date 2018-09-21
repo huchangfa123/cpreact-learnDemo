@@ -1,4 +1,4 @@
-import { renderComponent } from './diff'
+import { enqueueSetState } from './vueSetState'
 
 class Component {
   constructor(props = {}) {
@@ -7,8 +7,7 @@ class Component {
   }
 
   setState(stateChange) {
-    Object.assign(this.state, stateChange)
-    renderComponent(this)
+    enqueueSetState(stateChange, this)
   }
 }
 

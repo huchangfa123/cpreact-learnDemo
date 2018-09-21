@@ -119,6 +119,17 @@ class Counter extends React.Component {
         console.log( 'mount' );
     }
 
+    componentDidMount() {
+        for ( let i = 0; i < 5; i++ ) {
+            this.setState( prevState => {
+                console.log( this.state.num );
+                return {
+                    num: prevState.num + 1
+                }
+            } );
+        }
+    }
+
     onClick() {
         this.setState( { num: this.state.num + 1 } );
     }
